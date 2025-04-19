@@ -40,10 +40,12 @@ public class NBody {
     }
 
     public static void main(String[] args) {
+
         // Collecting All Needed Input
         double T = 157788000.0;
         double dt = 25000.0;
-        String filename = "./data/project0/planets.txt";
+        // TODO: this can change!
+        String filename = "./data/project0/pluto.txt";
         double radius = readRadius(filename);
         Planet[] planetArray = readPlanets(filename);
 
@@ -76,8 +78,8 @@ public class NBody {
             StdDraw.pause(10);
             t += dt;
         }
+
         // Printing the Universe when the final time T have been reached
-        File file = new File("./data/project0/planets.txt");
         StdOut.printf("%d\n", planetArray.length);
         StdOut.printf("%.2e\n", radius);
         Arrays.stream(planetArray).forEach(p -> {
