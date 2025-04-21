@@ -7,25 +7,25 @@ package com.litianyu.basics.project1a;
 public class LinkedListDeque<T> implements Deque<T> {
 
     private static class ListNode<T> {
-        public T value;
-        public ListNode<T> prev;
-        public ListNode<T> next;
+        private T value;
+        private ListNode<T> prev;
+        private ListNode<T> next;
 
-        public ListNode() {
+        private ListNode() {
             this.value = null;
             this.prev = null;
             this.next = null;
         }
 
-        public ListNode(T value) {
+        private ListNode(T value) {
             this.value = value;
             this.prev = null;
             this.next = null;
         }
     }
 
-    public ListNode<T> sentinel;
-    public int size;
+    private ListNode<T> sentinel;
+    private int size;
 
     /**
      * Creates an empty linked list deque.
