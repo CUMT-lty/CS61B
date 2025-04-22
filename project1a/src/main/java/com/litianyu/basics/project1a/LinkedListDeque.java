@@ -84,6 +84,9 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T removeFirst() {
+        if (this.size == 0) {
+            return null;
+        }
         ListNode<T> rm = this.sentinel.next;
         this.sentinel.next = this.sentinel.next.next;
         this.sentinel.next.prev = this.sentinel;
@@ -95,6 +98,9 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T removeLast() {
+        if (this.size == 0) {
+            return null;
+        }
         ListNode<T> rm = this.sentinel.prev;
         this.sentinel.prev = this.sentinel.prev.prev;
         this.sentinel.prev.next = this.sentinel;
@@ -126,7 +132,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         return _getRecursive(this.sentinel.next, index);
     }
 
-    public T _getRecursive(ListNode<T> ptr, int index) {
+    private T _getRecursive(ListNode<T> ptr, int index) {
         if (ptr == this.sentinel) {
             return null;
         }
